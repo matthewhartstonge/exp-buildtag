@@ -1,0 +1,92 @@
+ % make test
+gosec -tags=development -exclude-generated -r
+[gosec] 2025/11/04 14:42:53 Including rules: default
+[gosec] 2025/11/04 14:42:53 Excluding rules: default
+[gosec] 2025/11/04 14:42:53 Including analyzers: default
+[gosec] 2025/11/04 14:42:53 Excluding analyzers: default
+[gosec] 2025/11/04 14:42:53 Import directory: /go/src/github.com/matthewhartstonge/exp-buildtag/connection
+[gosec] 2025/11/04 14:42:53 Import directory: /go/src/github.com/matthewhartstonge/exp-buildtag
+[gosec] 2025/11/04 14:42:53 Checking package: connection
+[gosec] 2025/11/04 14:42:53 Checking file: /go/src/github.com/matthewhartstonge/exp-buildtag/connection/development.go
+[gosec] 2025/11/04 14:42:53 Checking package: main
+[gosec] 2025/11/04 14:42:53 Checking file: /go/src/github.com/matthewhartstonge/exp-buildtag/main.go
+[gosec] 2025/11/04 14:42:53 Panic when running SSA analyzer on package: main. Panic: runtime error: invalid memory address or nil pointer dereference
+Stack trace:
+goroutine 1 [running]:
+runtime/debug.Stack()
+        runtime/debug/stack.go:26 +0x64
+github.com/securego/gosec/v2.(*Analyzer).buildSSA.func1()
+        github.com/securego/gosec/v2/analyzer.go:501 +0x44
+panic({0x10508dba0?, 0x1059992e0?})
+        runtime/panic.go:783 +0x120
+golang.org/x/tools/go/ssa.(*Program).packageLevelMember(...)
+        golang.org/x/tools@v0.38.0/go/ssa/source.go:187
+golang.org/x/tools/go/ssa.(*builder).expr0(0x14000e712f0, 0x14000e80200, {0x105231fa0?, 0x140002bd5a0}, {0x0, {0x0, 0x0}, {0x0, 0x0}})
+        golang.org/x/tools@v0.38.0/go/ssa/builder.go:820 +0x150c
+golang.org/x/tools/go/ssa.(*builder).expr(0x14000e712f0, 0x14000e80200, {0x105231fa0, 0x140002bd5a0})
+        golang.org/x/tools@v0.38.0/go/ssa/builder.go:641 +0xf8
+golang.org/x/tools/go/ssa.(*builder).expr0(0x14000e712f0, 0x14000e80200, {0x105232030?, 0x14000e57680}, {0x0, {0x0, 0x0}, {0x0, 0x0}})
+        golang.org/x/tools@v0.38.0/go/ssa/builder.go:842 +0xc54
+golang.org/x/tools/go/ssa.(*builder).expr(0x14000e712f0, 0x14000e80200, {0x105232030, 0x14000e57680})
+        golang.org/x/tools@v0.38.0/go/ssa/builder.go:641 +0xf8
+golang.org/x/tools/go/ssa.(*builder).emitCallArgs(0x14000e712f0, 0x14000e80200, 0x14000e6e180, 0x14000e6f0c0, {0x0?, 0x0, 0x78?})
+        golang.org/x/tools@v0.38.0/go/ssa/builder.go:1090 +0xb0
+golang.org/x/tools/go/ssa.(*builder).setCall(0x14000e712f0, 0x14000e80200, 0x14000e6f0c0, 0x140002869c0)
+        golang.org/x/tools@v0.38.0/go/ssa/builder.go:1151 +0x78
+golang.org/x/tools/go/ssa.(*builder).expr0(0x14000e712f0, 0x14000e80200, {0x105232060?, 0x14000e6f0c0}, {0x7, {0x10522e310, 0x14000e57230}, {0x0, 0x0}})
+        golang.org/x/tools@v0.38.0/go/ssa/builder.go:724 +0x19dc
+golang.org/x/tools/go/ssa.(*builder).expr(0x14000e712f0, 0x14000e80200, {0x105232060, 0x14000e6f0c0})
+        golang.org/x/tools@v0.38.0/go/ssa/builder.go:641 +0xf8
+golang.org/x/tools/go/ssa.(*builder).stmt(0x14000e712f0, 0x14000e80200, {0x105232640?, 0x14000e649a0?})
+        golang.org/x/tools@v0.38.0/go/ssa/builder.go:2699 +0xbe4
+golang.org/x/tools/go/ssa.(*builder).stmtList(...)
+        golang.org/x/tools@v0.38.0/go/ssa/builder.go:972
+golang.org/x/tools/go/ssa.(*builder).stmt(0x14000e712f0, 0x14000e80200, {0x1052327f0?, 0x14000e70a20?})
+        golang.org/x/tools@v0.38.0/go/ssa/builder.go:2753 +0xcf0
+golang.org/x/tools/go/ssa.(*builder).buildFromSyntax(0x14000e712f0, 0x14000e80200)
+        golang.org/x/tools@v0.38.0/go/ssa/builder.go:2962 +0x204
+golang.org/x/tools/go/ssa.(*builder).buildFunction(0x1?, 0x14000e80200)
+        golang.org/x/tools@v0.38.0/go/ssa/builder.go:2912 +0xfc
+golang.org/x/tools/go/ssa.(*builder).iterate(0x14000e712f0)
+        golang.org/x/tools@v0.38.0/go/ssa/builder.go:2897 +0x28
+golang.org/x/tools/go/ssa.(*Package).build(0x14000286700)
+        golang.org/x/tools@v0.38.0/go/ssa/builder.go:3183 +0xb8
+sync.(*Once).doSlow(0x140000dd0e0?, 0x14000e744e0?)
+        sync/once.go:78 +0xe0
+sync.(*Once).Do(...)
+        sync/once.go:69
+golang.org/x/tools/go/ssa.(*Package).Build(...)
+        golang.org/x/tools@v0.38.0/go/ssa/builder.go:3172
+golang.org/x/tools/go/analysis/passes/buildssa.run(0x140002fe0e0)
+        golang.org/x/tools@v0.38.0/go/analysis/passes/buildssa/buildssa.go:59 +0x1a4
+github.com/securego/gosec/v2.(*Analyzer).buildSSA(0x14000b53848?, 0x14000c26680)
+        github.com/securego/gosec/v2/analyzer.go:524 +0x17c
+github.com/securego/gosec/v2.(*Analyzer).CheckAnalyzers(0x14000a98980, 0x14000c26680)
+        github.com/securego/gosec/v2/analyzer.go:415 +0x2c
+github.com/securego/gosec/v2.(*Analyzer).Process(0x14000a98980, {0x140000451b0, 0x1, 0x1}, {0x140001d8320, 0x2, 0x3d?})
+        github.com/securego/gosec/v2/analyzer.go:321 +0x33c
+main.main()
+        github.com/securego/gosec/v2/cmd/gosec/main.go:474 +0xb70
+[gosec] 2025/11/04 14:42:53 Error building the SSA representation of the package main: no ssa result
+Results:
+
+Golang errors in file: []:
+
+  > [line 0 : column 0] - # command-line-arguments
+./main.go:10:43: undefined: connection.URL
+
+
+Golang errors in file: [/go/src/github.com/matthewhartstonge/exp-buildtag/main.go]:
+
+  > [line 10 : column 43] - undefined: connection.URL
+
+
+
+Summary:
+  Gosec  : 2.22.10
+  Files  : 2
+  Lines  : 16
+  Nosec  : 0
+  Issues : 0
+
+make: *** [test] Error 1
