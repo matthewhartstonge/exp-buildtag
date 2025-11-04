@@ -4,4 +4,4 @@ test:
 
 .PHONY: test-workaround
 test-workaround:
-	export GOFLAGS="-tags=development"; gosec .
+	export GOFLAGS='-tags=tagging,test'; gosec .

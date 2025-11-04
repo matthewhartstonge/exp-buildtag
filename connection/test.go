@@ -1,5 +1,5 @@
-//go:build !(development || production)
+//go:build test && tagging
 
 package connection
 
-//const URL = "http://localhost:8080"
+const URL = "http://localhost:9090"
